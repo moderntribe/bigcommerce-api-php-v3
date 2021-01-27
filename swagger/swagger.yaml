@@ -2624,6 +2624,46 @@ paths:
         204:
           description: |
             An empty response.
+  /customers/settings/channels/{channelId}:
+    parameters:
+      - name: "channelId"
+        in: "path"
+        description: "The ID of a Channel that's available through GET /channels"
+        required: true
+        type: "integer"
+        format: "int64"
+    get:
+      tags:
+        - Customers
+      description: |
+        Get customer settings for a channel
+      operationId: getCustomerSettings
+      responses:
+        200:
+          description: |
+            Success.
+          schema:
+            $ref: "#/definitions/CustomersSettings"
+    put:
+      tags:
+        - Customers
+      description: |
+        Updates customer settings in BigCommerce.
+      operationId: updateCustomerSettings
+      parameters:
+        - name: ChannelSettings
+          in: body
+          required: true
+          description: |
+            A BigCommerce `ChannelSettings` object.
+          schema:
+            $ref: "#/definitions/CustomersSettings"
+      responses:
+        200:
+          description: |
+            Success.
+          schema:
+            $ref: "#/definitions/CustomersSettings"
   /orders/{order_id}/transactions:
       parameters:
         - $ref: "#/parameters/OrderIdParam"
@@ -7337,3 +7377,25 @@ definitions:
                 - original
                 - last_activated
                 - last_created
+  CustomersSettings:
+    title: ChannelSettings
+    type: object
+    properties:
+      privacy_settings:
+        type: object
+        properties:
+          ask_shopper_for_tracking_consent:
+            type: boolean
+          policy_url:
+            type: string
+          ask_shopper_for_tracking_consent_on_checkout:
+            type: boolean
+      customer_group_settings:
+        type: object
+        properties:
+          guest_customer_group_id:
+            type: integer
+          default_customer_group_id:
+            type: integer
+      allow_global_logins:
+        type: boolean
