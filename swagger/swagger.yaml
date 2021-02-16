@@ -2984,16 +2984,7 @@ paths:
                   type: boolean
                   description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
                 store_credit_amounts:
-                  description: 'Store credit. '
-                  type: array
-                  format: double
-                  items:
-                    type: object
-                    properties:
-                      amount:
-                        type: number
-                        format: float
-                        example: 43.15
+                  $ref: '#/definitions/storeCreditAmounts'
               required:
                 - email
                 - first_name
@@ -3094,16 +3085,7 @@ paths:
                   type: boolean
                   description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
                 store_credit_amounts:
-                  description: 'Store credit. '
-                  type: array
-                  format: double
-                  items:
-                    type: object
-                    properties:
-                      amount:
-                        type: number
-                        format: float
-                        example: 43.18
+                  $ref: '#/definitions/storeCreditAmounts'
               required:
                 - id
       responses:
@@ -7858,24 +7840,27 @@ definitions:
     title: ChannelSettings
     type: object
     properties:
-      privacy_settings:
+      data:
         type: object
         properties:
-          ask_shopper_for_tracking_consent:
+          privacy_settings:
+            type: object
+            properties:
+              ask_shopper_for_tracking_consent:
+                type: boolean
+              policy_url:
+                type: string
+              ask_shopper_for_tracking_consent_on_checkout:
+                type: boolean
+          customer_group_settings:
+            type: object
+            properties:
+              guest_customer_group_id:
+                type: integer
+              default_customer_group_id:
+                type: integer
+          allow_global_logins:
             type: boolean
-          policy_url:
-            type: string
-          ask_shopper_for_tracking_consent_on_checkout:
-            type: boolean
-      customer_group_settings:
-        type: object
-        properties:
-          guest_customer_group_id:
-            type: integer
-          default_customer_group_id:
-            type: integer
-      allow_global_logins:
-        type: boolean
   CustomerCollectionResponse:
     description: Customer Collection Response
     type: object
@@ -8092,21 +8077,23 @@ definitions:
           title: 'Form Field Value'
           type: object
       store_credit_amounts:
-        description: 'Store credit.'
-        type: array
-        format: double
-        items:
-          type: object
-          properties:
-            amount:
-              type: number
-              format: float
-              example: 43.18
+        $ref: '#/definitions/storeCreditAmounts'
       accepts_product_review_abandoned_cart_emails:
         type: boolean
         description: It determines if the customer is signed up to receive either product review or abandoned cart emails or recieve both emails.
       channel_ids:
         $ref: '#/definitions/customerChannelIds'
+  storeCreditAmounts:
+    description: 'Store credit.'
+    type: array
+    format: double
+    items:
+      type: object
+      properties:
+        amount:
+          type: number
+          format: float
+          example: 43.18
   _metaCollection:
     title: _metaCollection
     description: 'Data about the response, including pagination and collection totals.'

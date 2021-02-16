@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomersSettingsPrivacySettings
+ * StoreCreditAmountsInner
  *
  * @package  BigCommerce\Api\v3
  */
@@ -26,7 +26,7 @@ namespace BigCommerce\Api\v3\Model;
 
 use \ArrayAccess;
 
-class CustomersSettingsPrivacySettings implements ArrayAccess
+class StoreCreditAmountsInner implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -34,16 +34,14 @@ class CustomersSettingsPrivacySettings implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CustomersSettings_privacy_settings';
+    protected static $swaggerModelName = 'storeCreditAmounts_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'ask_shopper_for_tracking_consent' => 'bool',
-        'policy_url' => 'string',
-        'ask_shopper_for_tracking_consent_on_checkout' => 'bool'
+        'amount' => 'float'
     ];
 
     public static function swaggerTypes()
@@ -56,9 +54,7 @@ class CustomersSettingsPrivacySettings implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'ask_shopper_for_tracking_consent' => 'ask_shopper_for_tracking_consent',
-        'policy_url' => 'policy_url',
-        'ask_shopper_for_tracking_consent_on_checkout' => 'ask_shopper_for_tracking_consent_on_checkout'
+        'amount' => 'amount'
     ];
 
     /**
@@ -66,9 +62,7 @@ class CustomersSettingsPrivacySettings implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'ask_shopper_for_tracking_consent' => 'setAskShopperForTrackingConsent',
-        'policy_url' => 'setPolicyUrl',
-        'ask_shopper_for_tracking_consent_on_checkout' => 'setAskShopperForTrackingConsentOnCheckout'
+        'amount' => 'setAmount'
     ];
 
     /**
@@ -76,9 +70,7 @@ class CustomersSettingsPrivacySettings implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'ask_shopper_for_tracking_consent' => 'getAskShopperForTrackingConsent',
-        'policy_url' => 'getPolicyUrl',
-        'ask_shopper_for_tracking_consent_on_checkout' => 'getAskShopperForTrackingConsentOnCheckout'
+        'amount' => 'getAmount'
     ];
 
     public static function attributeMap()
@@ -112,9 +104,7 @@ class CustomersSettingsPrivacySettings implements ArrayAccess
      */
     public function __construct(array $data = [])
     {
-        $this->container['ask_shopper_for_tracking_consent'] = array_key_exists('ask_shopper_for_tracking_consent', $data) ? $data['ask_shopper_for_tracking_consent'] : null;
-        $this->container['policy_url'] = array_key_exists('policy_url', $data) ? $data['policy_url'] : null;
-        $this->container['ask_shopper_for_tracking_consent_on_checkout'] = array_key_exists('ask_shopper_for_tracking_consent_on_checkout', $data) ? $data['ask_shopper_for_tracking_consent_on_checkout'] : null;
+        $this->container['amount'] = array_key_exists('amount', $data) ? $data['amount'] : null;
     }
 
     /**
@@ -150,64 +140,22 @@ class CustomersSettingsPrivacySettings implements ArrayAccess
 
 
     /**
-     * Gets ask_shopper_for_tracking_consent
-     * @return bool
+     * Gets amount
+     * @return float
      */
-    public function getAskShopperForTrackingConsent()
+    public function getAmount()
     {
-        return $this->container['ask_shopper_for_tracking_consent'];
+        return $this->container['amount'];
     }
 
     /**
-     * Sets ask_shopper_for_tracking_consent
-     * @param bool $ask_shopper_for_tracking_consent
+     * Sets amount
+     * @param float $amount
      * @return $this
      */
-    public function setAskShopperForTrackingConsent($ask_shopper_for_tracking_consent)
+    public function setAmount($amount)
     {
-        $this->container['ask_shopper_for_tracking_consent'] = $ask_shopper_for_tracking_consent;
-
-        return $this;
-    }
-
-    /**
-     * Gets policy_url
-     * @return string
-     */
-    public function getPolicyUrl()
-    {
-        return $this->container['policy_url'];
-    }
-
-    /**
-     * Sets policy_url
-     * @param string $policy_url
-     * @return $this
-     */
-    public function setPolicyUrl($policy_url)
-    {
-        $this->container['policy_url'] = $policy_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets ask_shopper_for_tracking_consent_on_checkout
-     * @return bool
-     */
-    public function getAskShopperForTrackingConsentOnCheckout()
-    {
-        return $this->container['ask_shopper_for_tracking_consent_on_checkout'];
-    }
-
-    /**
-     * Sets ask_shopper_for_tracking_consent_on_checkout
-     * @param bool $ask_shopper_for_tracking_consent_on_checkout
-     * @return $this
-     */
-    public function setAskShopperForTrackingConsentOnCheckout($ask_shopper_for_tracking_consent_on_checkout)
-    {
-        $this->container['ask_shopper_for_tracking_consent_on_checkout'] = $ask_shopper_for_tracking_consent_on_checkout;
+        $this->container['amount'] = $amount;
 
         return $this;
     }

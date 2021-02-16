@@ -53,7 +53,7 @@ class CustomerPut implements ArrayAccess
         'id' => 'int',
         'authentication' => '\BigCommerce\Api\v3\Model\CustomerAuthentication',
         'accepts_product_review_abandoned_cart_emails' => 'bool',
-        'store_credit_amounts' => '\BigCommerce\Api\v3\Model\CustomersStoreCreditAmounts[]'
+        'store_credit_amounts' => '\BigCommerce\Api\v3\Model\StoreCreditAmounts'
     ];
 
     public static function swaggerTypes()
@@ -585,7 +585,7 @@ class CustomerPut implements ArrayAccess
 
     /**
      * Gets store_credit_amounts
-     * @return \BigCommerce\Api\v3\Model\CustomersStoreCreditAmounts[]
+     * @return \BigCommerce\Api\v3\Model\StoreCreditAmounts
      */
     public function getStoreCreditAmounts()
     {
@@ -594,7 +594,7 @@ class CustomerPut implements ArrayAccess
 
     /**
      * Sets store_credit_amounts
-     * @param \BigCommerce\Api\v3\Model\CustomersStoreCreditAmounts[] $store_credit_amounts Store credit.
+     * @param \BigCommerce\Api\v3\Model\StoreCreditAmounts $store_credit_amounts
      * @return $this
      */
     public function setStoreCreditAmounts($store_credit_amounts)

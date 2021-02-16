@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomersSettingsCustomerGroupSettings
+ * CustomersSettingsData
  *
  * @package  BigCommerce\Api\v3
  */
@@ -26,7 +26,7 @@ namespace BigCommerce\Api\v3\Model;
 
 use \ArrayAccess;
 
-class CustomersSettingsCustomerGroupSettings implements ArrayAccess
+class CustomersSettingsData implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -34,15 +34,16 @@ class CustomersSettingsCustomerGroupSettings implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CustomersSettings_customer_group_settings';
+    protected static $swaggerModelName = 'CustomersSettings_data';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'guest_customer_group_id' => 'int',
-        'default_customer_group_id' => 'int'
+        'privacy_settings' => '\BigCommerce\Api\v3\Model\CustomersSettingsDataPrivacySettings',
+        'customer_group_settings' => '\BigCommerce\Api\v3\Model\CustomersSettingsDataCustomerGroupSettings',
+        'allow_global_logins' => 'bool'
     ];
 
     public static function swaggerTypes()
@@ -55,8 +56,9 @@ class CustomersSettingsCustomerGroupSettings implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'guest_customer_group_id' => 'guest_customer_group_id',
-        'default_customer_group_id' => 'default_customer_group_id'
+        'privacy_settings' => 'privacy_settings',
+        'customer_group_settings' => 'customer_group_settings',
+        'allow_global_logins' => 'allow_global_logins'
     ];
 
     /**
@@ -64,8 +66,9 @@ class CustomersSettingsCustomerGroupSettings implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'guest_customer_group_id' => 'setGuestCustomerGroupId',
-        'default_customer_group_id' => 'setDefaultCustomerGroupId'
+        'privacy_settings' => 'setPrivacySettings',
+        'customer_group_settings' => 'setCustomerGroupSettings',
+        'allow_global_logins' => 'setAllowGlobalLogins'
     ];
 
     /**
@@ -73,8 +76,9 @@ class CustomersSettingsCustomerGroupSettings implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'guest_customer_group_id' => 'getGuestCustomerGroupId',
-        'default_customer_group_id' => 'getDefaultCustomerGroupId'
+        'privacy_settings' => 'getPrivacySettings',
+        'customer_group_settings' => 'getCustomerGroupSettings',
+        'allow_global_logins' => 'getAllowGlobalLogins'
     ];
 
     public static function attributeMap()
@@ -108,8 +112,9 @@ class CustomersSettingsCustomerGroupSettings implements ArrayAccess
      */
     public function __construct(array $data = [])
     {
-        $this->container['guest_customer_group_id'] = array_key_exists('guest_customer_group_id', $data) ? $data['guest_customer_group_id'] : null;
-        $this->container['default_customer_group_id'] = array_key_exists('default_customer_group_id', $data) ? $data['default_customer_group_id'] : null;
+        $this->container['privacy_settings'] = array_key_exists('privacy_settings', $data) ? $data['privacy_settings'] : null;
+        $this->container['customer_group_settings'] = array_key_exists('customer_group_settings', $data) ? $data['customer_group_settings'] : null;
+        $this->container['allow_global_logins'] = array_key_exists('allow_global_logins', $data) ? $data['allow_global_logins'] : null;
     }
 
     /**
@@ -145,43 +150,64 @@ class CustomersSettingsCustomerGroupSettings implements ArrayAccess
 
 
     /**
-     * Gets guest_customer_group_id
-     * @return int
+     * Gets privacy_settings
+     * @return \BigCommerce\Api\v3\Model\CustomersSettingsDataPrivacySettings
      */
-    public function getGuestCustomerGroupId()
+    public function getPrivacySettings()
     {
-        return $this->container['guest_customer_group_id'];
+        return $this->container['privacy_settings'];
     }
 
     /**
-     * Sets guest_customer_group_id
-     * @param int $guest_customer_group_id
+     * Sets privacy_settings
+     * @param \BigCommerce\Api\v3\Model\CustomersSettingsDataPrivacySettings $privacy_settings
      * @return $this
      */
-    public function setGuestCustomerGroupId($guest_customer_group_id)
+    public function setPrivacySettings($privacy_settings)
     {
-        $this->container['guest_customer_group_id'] = $guest_customer_group_id;
+        $this->container['privacy_settings'] = $privacy_settings;
 
         return $this;
     }
 
     /**
-     * Gets default_customer_group_id
-     * @return int
+     * Gets customer_group_settings
+     * @return \BigCommerce\Api\v3\Model\CustomersSettingsDataCustomerGroupSettings
      */
-    public function getDefaultCustomerGroupId()
+    public function getCustomerGroupSettings()
     {
-        return $this->container['default_customer_group_id'];
+        return $this->container['customer_group_settings'];
     }
 
     /**
-     * Sets default_customer_group_id
-     * @param int $default_customer_group_id
+     * Sets customer_group_settings
+     * @param \BigCommerce\Api\v3\Model\CustomersSettingsDataCustomerGroupSettings $customer_group_settings
      * @return $this
      */
-    public function setDefaultCustomerGroupId($default_customer_group_id)
+    public function setCustomerGroupSettings($customer_group_settings)
     {
-        $this->container['default_customer_group_id'] = $default_customer_group_id;
+        $this->container['customer_group_settings'] = $customer_group_settings;
+
+        return $this;
+    }
+
+    /**
+     * Gets allow_global_logins
+     * @return bool
+     */
+    public function getAllowGlobalLogins()
+    {
+        return $this->container['allow_global_logins'];
+    }
+
+    /**
+     * Sets allow_global_logins
+     * @param bool $allow_global_logins
+     * @return $this
+     */
+    public function setAllowGlobalLogins($allow_global_logins)
+    {
+        $this->container['allow_global_logins'] = $allow_global_logins;
 
         return $this;
     }

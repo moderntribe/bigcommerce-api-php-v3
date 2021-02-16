@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomersSettings
+ * CustomersSettingsDataCustomerGroupSettings
  *
  * @package  BigCommerce\Api\v3
  */
@@ -26,7 +26,7 @@ namespace BigCommerce\Api\v3\Model;
 
 use \ArrayAccess;
 
-class CustomersSettings implements ArrayAccess
+class CustomersSettingsDataCustomerGroupSettings implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -34,14 +34,15 @@ class CustomersSettings implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CustomersSettings';
+    protected static $swaggerModelName = 'CustomersSettings_data_customer_group_settings';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\BigCommerce\Api\v3\Model\CustomersSettingsData'
+        'guest_customer_group_id' => 'int',
+        'default_customer_group_id' => 'int'
     ];
 
     public static function swaggerTypes()
@@ -54,7 +55,8 @@ class CustomersSettings implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data'
+        'guest_customer_group_id' => 'guest_customer_group_id',
+        'default_customer_group_id' => 'default_customer_group_id'
     ];
 
     /**
@@ -62,7 +64,8 @@ class CustomersSettings implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData'
+        'guest_customer_group_id' => 'setGuestCustomerGroupId',
+        'default_customer_group_id' => 'setDefaultCustomerGroupId'
     ];
 
     /**
@@ -70,7 +73,8 @@ class CustomersSettings implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData'
+        'guest_customer_group_id' => 'getGuestCustomerGroupId',
+        'default_customer_group_id' => 'getDefaultCustomerGroupId'
     ];
 
     public static function attributeMap()
@@ -104,7 +108,8 @@ class CustomersSettings implements ArrayAccess
      */
     public function __construct(array $data = [])
     {
-        $this->container['data'] = array_key_exists('data', $data) ? $data['data'] : null;
+        $this->container['guest_customer_group_id'] = array_key_exists('guest_customer_group_id', $data) ? $data['guest_customer_group_id'] : null;
+        $this->container['default_customer_group_id'] = array_key_exists('default_customer_group_id', $data) ? $data['default_customer_group_id'] : null;
     }
 
     /**
@@ -140,22 +145,43 @@ class CustomersSettings implements ArrayAccess
 
 
     /**
-     * Gets data
-     * @return \BigCommerce\Api\v3\Model\CustomersSettingsData
+     * Gets guest_customer_group_id
+     * @return int
      */
-    public function getData()
+    public function getGuestCustomerGroupId()
     {
-        return $this->container['data'];
+        return $this->container['guest_customer_group_id'];
     }
 
     /**
-     * Sets data
-     * @param \BigCommerce\Api\v3\Model\CustomersSettingsData $data
+     * Sets guest_customer_group_id
+     * @param int $guest_customer_group_id
      * @return $this
      */
-    public function setData($data)
+    public function setGuestCustomerGroupId($guest_customer_group_id)
     {
-        $this->container['data'] = $data;
+        $this->container['guest_customer_group_id'] = $guest_customer_group_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets default_customer_group_id
+     * @return int
+     */
+    public function getDefaultCustomerGroupId()
+    {
+        return $this->container['default_customer_group_id'];
+    }
+
+    /**
+     * Sets default_customer_group_id
+     * @param int $default_customer_group_id
+     * @return $this
+     */
+    public function setDefaultCustomerGroupId($default_customer_group_id)
+    {
+        $this->container['default_customer_group_id'] = $default_customer_group_id;
 
         return $this;
     }
