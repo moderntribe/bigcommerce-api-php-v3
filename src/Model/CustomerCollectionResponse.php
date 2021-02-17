@@ -41,8 +41,8 @@ class CustomerCollectionResponse implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\BigCommerce\Api\v3\Model\CustomerFull',
-        'meta' => '\BigCommerce\Api\v3\Model\MetaCollection'
+        'data' => '\BigCommerce\Api\v3\Model\Customer[]',
+        'meta' => '\BigCommerce\Api\v3\Model\CollectionMeta'
     ];
 
     public static function swaggerTypes()
@@ -146,7 +146,7 @@ class CustomerCollectionResponse implements ArrayAccess
 
     /**
      * Gets data
-     * @return \BigCommerce\Api\v3\Model\CustomerFull
+     * @return \BigCommerce\Api\v3\Model\Customer[]
      */
     public function getData()
     {
@@ -155,7 +155,7 @@ class CustomerCollectionResponse implements ArrayAccess
 
     /**
      * Sets data
-     * @param \BigCommerce\Api\v3\Model\CustomerFull $data
+     * @param \BigCommerce\Api\v3\Model\Customer[] $data
      * @return $this
      */
     public function setData($data)
@@ -167,7 +167,7 @@ class CustomerCollectionResponse implements ArrayAccess
 
     /**
      * Gets meta
-     * @return \BigCommerce\Api\v3\Model\MetaCollection
+     * @return \BigCommerce\Api\v3\Model\CollectionMeta
      */
     public function getMeta()
     {
@@ -176,7 +176,7 @@ class CustomerCollectionResponse implements ArrayAccess
 
     /**
      * Sets meta
-     * @param \BigCommerce\Api\v3\Model\MetaCollection $meta
+     * @param \BigCommerce\Api\v3\Model\CollectionMeta $meta
      * @return $this
      */
     public function setMeta($meta)

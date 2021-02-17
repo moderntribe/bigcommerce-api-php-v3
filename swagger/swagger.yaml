@@ -7866,11 +7866,13 @@ definitions:
     type: object
     properties:
       data:
-        $ref: '#/definitions/customer_Full'
+        type: array
+        items:
+          $ref: '#/definitions/Customer'
       meta:
-        $ref: '#/definitions/_metaCollection'
-  customer_Full:
-    title: customer_Full
+        $ref: '#/definitions/CollectionMeta'
+  Customer:
+    title: Customer
     type: object
     properties:
       email:
@@ -8094,13 +8096,6 @@ definitions:
           type: number
           format: float
           example: 43.18
-  _metaCollection:
-    title: _metaCollection
-    description: 'Data about the response, including pagination and collection totals.'
-    type: object
-    properties:
-       pagination:
-          $ref: "#/definitions/Pagination"
   customerChannelIds:
     type: array
     title: customerChannelIds

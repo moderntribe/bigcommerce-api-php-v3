@@ -1,6 +1,6 @@
 <?php
 /**
- * CustomerFull
+ * Customer
  *
  * @package  BigCommerce\Api\v3
  */
@@ -26,7 +26,7 @@ namespace BigCommerce\Api\v3\Model;
 
 use \ArrayAccess;
 
-class CustomerFull implements ArrayAccess
+class Customer implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -34,7 +34,7 @@ class CustomerFull implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'customer_Full';
+    protected static $swaggerModelName = 'Customer';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -340,10 +340,10 @@ class CustomerFull implements ArrayAccess
     public function setEmail($email)
     {
         if (strlen($email) > 255) {
-            throw new \InvalidArgumentException('invalid length for $email when calling CustomerFull., must be smaller than or equal to 255.');
+            throw new \InvalidArgumentException('invalid length for $email when calling Customer., must be smaller than or equal to 255.');
         }
         if (strlen($email) < 3) {
-            throw new \InvalidArgumentException('invalid length for $email when calling CustomerFull., must be bigger than or equal to 3.');
+            throw new \InvalidArgumentException('invalid length for $email when calling Customer., must be bigger than or equal to 3.');
         }
         $this->container['email'] = $email;
 
@@ -367,10 +367,10 @@ class CustomerFull implements ArrayAccess
     public function setFirstName($first_name)
     {
         if (strlen($first_name) > 100) {
-            throw new \InvalidArgumentException('invalid length for $first_name when calling CustomerFull., must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid length for $first_name when calling Customer., must be smaller than or equal to 100.');
         }
         if (strlen($first_name) < 1) {
-            throw new \InvalidArgumentException('invalid length for $first_name when calling CustomerFull., must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid length for $first_name when calling Customer., must be bigger than or equal to 1.');
         }
         $this->container['first_name'] = $first_name;
 
@@ -394,10 +394,10 @@ class CustomerFull implements ArrayAccess
     public function setLastName($last_name)
     {
         if (strlen($last_name) > 100) {
-            throw new \InvalidArgumentException('invalid length for $last_name when calling CustomerFull., must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid length for $last_name when calling Customer., must be smaller than or equal to 100.');
         }
         if (strlen($last_name) < 1) {
-            throw new \InvalidArgumentException('invalid length for $last_name when calling CustomerFull., must be bigger than or equal to 1.');
+            throw new \InvalidArgumentException('invalid length for $last_name when calling Customer., must be bigger than or equal to 1.');
         }
         $this->container['last_name'] = $last_name;
 
@@ -421,10 +421,10 @@ class CustomerFull implements ArrayAccess
     public function setCompany($company)
     {
         if (strlen($company) > 255) {
-            throw new \InvalidArgumentException('invalid length for $company when calling CustomerFull., must be smaller than or equal to 255.');
+            throw new \InvalidArgumentException('invalid length for $company when calling Customer., must be smaller than or equal to 255.');
         }
         if (strlen($company) < 0) {
-            throw new \InvalidArgumentException('invalid length for $company when calling CustomerFull., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $company when calling Customer., must be bigger than or equal to 0.');
         }
         $this->container['company'] = $company;
 
@@ -448,10 +448,10 @@ class CustomerFull implements ArrayAccess
     public function setPhone($phone)
     {
         if (strlen($phone) > 50) {
-            throw new \InvalidArgumentException('invalid length for $phone when calling CustomerFull., must be smaller than or equal to 50.');
+            throw new \InvalidArgumentException('invalid length for $phone when calling Customer., must be smaller than or equal to 50.');
         }
         if (strlen($phone) < 0) {
-            throw new \InvalidArgumentException('invalid length for $phone when calling CustomerFull., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $phone when calling Customer., must be bigger than or equal to 0.');
         }
         $this->container['phone'] = $phone;
 
@@ -475,10 +475,10 @@ class CustomerFull implements ArrayAccess
     public function setRegistrationIpAddress($registration_ip_address)
     {
         if (strlen($registration_ip_address) > 30) {
-            throw new \InvalidArgumentException('invalid length for $registration_ip_address when calling CustomerFull., must be smaller than or equal to 30.');
+            throw new \InvalidArgumentException('invalid length for $registration_ip_address when calling Customer., must be smaller than or equal to 30.');
         }
         if (strlen($registration_ip_address) < 0) {
-            throw new \InvalidArgumentException('invalid length for $registration_ip_address when calling CustomerFull., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $registration_ip_address when calling Customer., must be bigger than or equal to 0.');
         }
         $this->container['registration_ip_address'] = $registration_ip_address;
 
@@ -523,10 +523,10 @@ class CustomerFull implements ArrayAccess
     public function setTaxExemptCategory($tax_exempt_category)
     {
         if (strlen($tax_exempt_category) > 255) {
-            throw new \InvalidArgumentException('invalid length for $tax_exempt_category when calling CustomerFull., must be smaller than or equal to 255.');
+            throw new \InvalidArgumentException('invalid length for $tax_exempt_category when calling Customer., must be smaller than or equal to 255.');
         }
         if (strlen($tax_exempt_category) < 0) {
-            throw new \InvalidArgumentException('invalid length for $tax_exempt_category when calling CustomerFull., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $tax_exempt_category when calling Customer., must be bigger than or equal to 0.');
         }
         $this->container['tax_exempt_category'] = $tax_exempt_category;
 
