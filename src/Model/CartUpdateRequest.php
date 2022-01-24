@@ -42,7 +42,8 @@ class CartUpdateRequest implements ArrayAccess
       */
     protected static $swaggerTypes = [
         'line_item' => '\BigCommerce\Api\v3\Model\LineItemRequestData',
-        'gift_certificate' => '\BigCommerce\Api\v3\Model\LineItemGiftCertificateRequestData'
+        'gift_certificate' => '\BigCommerce\Api\v3\Model\LineItemGiftCertificateRequestData',
+        'custom_item' => '\BigCommerce\Api\v3\Model\CustomItemRequestData'
     ];
 
     public static function swaggerTypes()
@@ -56,7 +57,8 @@ class CartUpdateRequest implements ArrayAccess
      */
     protected static $attributeMap = [
         'line_item' => 'line_item',
-        'gift_certificate' => 'gift_certificate'
+        'gift_certificate' => 'gift_certificate',
+        'custom_item' => 'custom_item'
     ];
 
     /**
@@ -65,7 +67,8 @@ class CartUpdateRequest implements ArrayAccess
      */
     protected static $setters = [
         'line_item' => 'setLineItem',
-        'gift_certificate' => 'setGiftCertificate'
+        'gift_certificate' => 'setGiftCertificate',
+        'custom_item' => 'setCustomItem'
     ];
 
     /**
@@ -74,7 +77,8 @@ class CartUpdateRequest implements ArrayAccess
      */
     protected static $getters = [
         'line_item' => 'getLineItem',
-        'gift_certificate' => 'getGiftCertificate'
+        'gift_certificate' => 'getGiftCertificate',
+        'custom_item' => 'getCustomItem'
     ];
 
     public static function attributeMap()
@@ -110,6 +114,7 @@ class CartUpdateRequest implements ArrayAccess
     {
         $this->container['line_item'] = array_key_exists('line_item', $data) ? $data['line_item'] : null;
         $this->container['gift_certificate'] = array_key_exists('gift_certificate', $data) ? $data['gift_certificate'] : null;
+        $this->container['custom_item'] = array_key_exists('custom_item', $data) ? $data['custom_item'] : null;
     }
 
     /**
@@ -182,6 +187,27 @@ class CartUpdateRequest implements ArrayAccess
     public function setGiftCertificate($gift_certificate)
     {
         $this->container['gift_certificate'] = $gift_certificate;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_item
+     * @return \BigCommerce\Api\v3\Model\CustomItemRequestData
+     */
+    public function getCustomItem()
+    {
+        return $this->container['custom_item'];
+    }
+
+    /**
+     * Sets custom_item
+     * @param \BigCommerce\Api\v3\Model\CustomItemRequestData $custom_item
+     * @return $this
+     */
+    public function setCustomItem($custom_item)
+    {
+        $this->container['custom_item'] = $custom_item;
 
         return $this;
     }

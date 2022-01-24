@@ -43,7 +43,8 @@ class LineItems implements ArrayAccess
     protected static $swaggerTypes = [
         'physical_items' => '\BigCommerce\Api\v3\Model\ItemPhysical[]',
         'digital_items' => '\BigCommerce\Api\v3\Model\ItemDigital[]',
-        'gift_certificates' => '\BigCommerce\Api\v3\Model\ItemGiftCertificate[]'
+        'gift_certificates' => '\BigCommerce\Api\v3\Model\ItemGiftCertificate[]',
+        'custom_items' => '\BigCommerce\Api\v3\Model\ItemCustom[]'
     ];
 
     public static function swaggerTypes()
@@ -58,7 +59,8 @@ class LineItems implements ArrayAccess
     protected static $attributeMap = [
         'physical_items' => 'physical_items',
         'digital_items' => 'digital_items',
-        'gift_certificates' => 'gift_certificates'
+        'gift_certificates' => 'gift_certificates',
+        'custom_items' => 'custom_items'
     ];
 
     /**
@@ -68,7 +70,8 @@ class LineItems implements ArrayAccess
     protected static $setters = [
         'physical_items' => 'setPhysicalItems',
         'digital_items' => 'setDigitalItems',
-        'gift_certificates' => 'setGiftCertificates'
+        'gift_certificates' => 'setGiftCertificates',
+        'custom_items' => 'setCustomItems'
     ];
 
     /**
@@ -78,7 +81,8 @@ class LineItems implements ArrayAccess
     protected static $getters = [
         'physical_items' => 'getPhysicalItems',
         'digital_items' => 'getDigitalItems',
-        'gift_certificates' => 'getGiftCertificates'
+        'gift_certificates' => 'getGiftCertificates',
+        'custom_items' => 'getCustomItems'
     ];
 
     public static function attributeMap()
@@ -115,6 +119,7 @@ class LineItems implements ArrayAccess
         $this->container['physical_items'] = array_key_exists('physical_items', $data) ? $data['physical_items'] : null;
         $this->container['digital_items'] = array_key_exists('digital_items', $data) ? $data['digital_items'] : null;
         $this->container['gift_certificates'] = array_key_exists('gift_certificates', $data) ? $data['gift_certificates'] : null;
+        $this->container['custom_items'] = array_key_exists('custom_items', $data) ? $data['custom_items'] : null;
     }
 
     /**
@@ -143,6 +148,9 @@ class LineItems implements ArrayAccess
         if ($this->container['gift_certificates'] === null) {
             $invalid_properties[] = "'gift_certificates' can't be null";
         }
+        if ($this->container['custom_items'] === null) {
+            $invalid_properties[] = "'custom_items' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -161,6 +169,9 @@ class LineItems implements ArrayAccess
             return false;
         }
         if ($this->container['gift_certificates'] === null) {
+            return false;
+        }
+        if ($this->container['custom_items'] === null) {
             return false;
         }
         return true;
@@ -226,6 +237,27 @@ class LineItems implements ArrayAccess
     public function setGiftCertificates($gift_certificates)
     {
         $this->container['gift_certificates'] = $gift_certificates;
+
+        return $this;
+    }
+
+    /**
+     * Gets custom_items
+     * @return \BigCommerce\Api\v3\Model\ItemCustom[]
+     */
+    public function getCustomItems()
+    {
+        return $this->container['custom_items'];
+    }
+
+    /**
+     * Sets custom_items
+     * @param \BigCommerce\Api\v3\Model\ItemCustom[] $custom_items
+     * @return $this
+     */
+    public function setCustomItems($custom_items)
+    {
+        $this->container['custom_items'] = $custom_items;
 
         return $this;
     }
