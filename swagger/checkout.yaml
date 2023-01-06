@@ -517,7 +517,7 @@ definitions:
               phone:
                 description: ''
                 type: string
-                pattern: '^\+?[1-9]\d{1,14}(x\d{1-5})?$'
+                pattern: '^\+?[1-9]\d{1,14}(x\d{1,5})?$'
               custom_fields:
                 description: ''
                 type: array

@@ -190,8 +190,8 @@ class AddressProperties implements ArrayAccess
         if ($this->container['country_code'] === null) {
             $invalid_properties[] = "'country_code' can't be null";
         }
-        if (!preg_match("/^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$/", $this->container['phone'])) {
-            $invalid_properties[] = "invalid value for 'phone', must be conform to the pattern /^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$/.";
+        if (!preg_match("/^\\+?[1-9]\\d{1,14}(x\\d{1,5})?$/", $this->container['phone'])) {
+            $invalid_properties[] = "invalid value for 'phone', must be conform to the pattern /^\\+?[1-9]\\d{1,14}(x\\d{1,5})?$/.";
         }
         return $invalid_properties;
     }
