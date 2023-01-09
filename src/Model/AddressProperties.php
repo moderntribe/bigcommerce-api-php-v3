@@ -210,7 +210,7 @@ class AddressProperties implements ArrayAccess
         if ($this->container['country_code'] === null) {
             return false;
         }
-        if (!preg_match("/^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$/", $this->container['phone'])) {
+        if (!preg_match("/^\\+?[1-9]\\d{1,14}(x\\d{1,5})?$/", $this->container['phone'])) {
             return false;
         }
         return true;
