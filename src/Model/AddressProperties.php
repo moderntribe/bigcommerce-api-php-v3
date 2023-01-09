@@ -465,8 +465,8 @@ class AddressProperties implements ArrayAccess
     public function setPhone($phone)
     {
 
-        if (!preg_match("/^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$/", $phone)) {
-            throw new \InvalidArgumentException('invalid value for $phone when calling AddressProperties., must be conform to the pattern /^\\+?[1-9]\\d{1,14}(x\\d{1-5})?$/.');
+        if (!preg_match("/^\\+?[1-9]\\d{1,14}(x\\d{1,5})?$/", $phone)) {
+            throw new \InvalidArgumentException('invalid value for $phone when calling AddressProperties., must be conform to the pattern /^\\+?[1-9]\\d{1,14}(x\\d{1,5})?$/.');
         }
         $this->container['phone'] = $phone;
 
