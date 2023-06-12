@@ -1,6 +1,6 @@
 <?php
 /**
- * CartRequestData
+ * CustomItemRequestData
  *
  * @package  BigCommerce\Api\v3
  */
@@ -26,7 +26,7 @@ namespace BigCommerce\Api\v3\Model;
 
 use \ArrayAccess;
 
-class CartRequestData implements ArrayAccess
+class CustomItemRequestData implements ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -34,19 +34,18 @@ class CartRequestData implements ArrayAccess
       * The original name of the model.
       * @var string
       */
-    protected static $swaggerModelName = 'CartRequestData';
+    protected static $swaggerModelName = 'CustomItemRequestData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'line_items' => '\BigCommerce\Api\v3\Model\LineItemRequestData[]',
-        'gift_certificates' => '\BigCommerce\Api\v3\Model\LineItemGiftCertificateRequestData[]',
-        'custom_items' => '\BigCommerce\Api\v3\Model\CustomItemRequestData[]',
-        'customer_id' => 'int',
-        'channel_id' => 'int',
-        'currency' => '\BigCommerce\Api\v3\Model\Currency'
+        'sku' => 'string',
+        'name' => 'string',
+        'quantity' => 'float',
+        'list_price' => 'float',
+        'extended_list_price' => 'float'
     ];
 
     public static function swaggerTypes()
@@ -59,12 +58,11 @@ class CartRequestData implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'line_items' => 'line_items',
-        'gift_certificates' => 'gift_certificates',
-        'custom_items' => 'custom_items',
-        'customer_id' => 'customer_id',
-        'channel_id' => 'channel_id',
-        'currency' => 'currency'
+        'sku' => 'sku',
+        'name' => 'name',
+        'quantity' => 'quantity',
+        'list_price' => 'list_price',
+        'extended_list_price' => 'extended_list_price'
     ];
 
     /**
@@ -72,12 +70,11 @@ class CartRequestData implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'line_items' => 'setLineItems',
-        'gift_certificates' => 'setGiftCertificates',
-        'custom_items' => 'setCustomItems',
-        'customer_id' => 'setCustomerId',
-        'channel_id' => 'setChannelId',
-        'currency' => 'setCurrency'
+        'sku' => 'setSku',
+        'name' => 'setName',
+        'quantity' => 'setQuantity',
+        'list_price' => 'setListPrice',
+        'extended_list_price' => 'setExtendedListPrice'
     ];
 
     /**
@@ -85,12 +82,11 @@ class CartRequestData implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'line_items' => 'getLineItems',
-        'gift_certificates' => 'getGiftCertificates',
-        'custom_items' => 'getCustomItems',
-        'customer_id' => 'getCustomerId',
-        'channel_id' => 'getChannelId',
-        'currency' => 'getCurrency'
+        'sku' => 'getSku',
+        'name' => 'getName',
+        'quantity' => 'getQuantity',
+        'list_price' => 'getListPrice',
+        'extended_list_price' => 'getExtendedListPrice'
     ];
 
     public static function attributeMap()
@@ -124,12 +120,11 @@ class CartRequestData implements ArrayAccess
      */
     public function __construct(array $data = [])
     {
-        $this->container['line_items'] = array_key_exists('line_items', $data) ? $data['line_items'] : null;
-        $this->container['gift_certificates'] = array_key_exists('gift_certificates', $data) ? $data['gift_certificates'] : null;
-        $this->container['custom_items'] = array_key_exists('custom_items', $data) ? $data['custom_items'] : null;
-        $this->container['customer_id'] = array_key_exists('customer_id', $data) ? $data['customer_id'] : null;
-        $this->container['channel_id'] = array_key_exists('channel_id', $data) ? $data['channel_id'] : null;
-        $this->container['currency'] = array_key_exists('currency', $data) ? $data['currency'] : null;
+        $this->container['sku'] = array_key_exists('sku', $data) ? $data['sku'] : null;
+        $this->container['name'] = array_key_exists('name', $data) ? $data['name'] : null;
+        $this->container['quantity'] = array_key_exists('quantity', $data) ? $data['quantity'] : null;
+        $this->container['list_price'] = array_key_exists('list_price', $data) ? $data['list_price'] : null;
+        $this->container['extended_list_price'] = array_key_exists('extended_list_price', $data) ? $data['extended_list_price'] : null;
     }
 
     /**
@@ -149,6 +144,18 @@ class CartRequestData implements ArrayAccess
     public function listInvalidProperties()
     {
         $invalid_properties = [];
+        if ($this->container['sku'] === null) {
+            $invalid_properties[] = "'sku' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalid_properties[] = "'name' can't be null";
+        }
+        if ($this->container['quantity'] === null) {
+            $invalid_properties[] = "'quantity' can't be null";
+        }
+        if ($this->container['list_price'] === null) {
+            $invalid_properties[] = "'list_price' can't be null";
+        }
         return $invalid_properties;
     }
 
@@ -160,132 +167,123 @@ class CartRequestData implements ArrayAccess
      */
     public function valid()
     {
+        if ($this->container['sku'] === null) {
+            return false;
+        }
+        if ($this->container['name'] === null) {
+            return false;
+        }
+        if ($this->container['quantity'] === null) {
+            return false;
+        }
+        if ($this->container['list_price'] === null) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets line_items
-     * @return \BigCommerce\Api\v3\Model\LineItemRequestData[]
+     * Gets sku
+     * @return string
      */
-    public function getLineItems()
+    public function getSku()
     {
-        return $this->container['line_items'];
+        return $this->container['sku'];
     }
 
     /**
-     * Sets line_items
-     * @param \BigCommerce\Api\v3\Model\LineItemRequestData[] $line_items
+     * Sets sku
+     * @param string $sku Custom
      * @return $this
      */
-    public function setLineItems($line_items)
+    public function setSku($sku)
     {
-        $this->container['line_items'] = $line_items;
+        $this->container['sku'] = $sku;
 
         return $this;
     }
 
     /**
-     * Gets gift_certificates
-     * @return \BigCommerce\Api\v3\Model\LineItemGiftCertificateRequestData[]
+     * Gets name
+     * @return string
      */
-    public function getGiftCertificates()
+    public function getName()
     {
-        return $this->container['gift_certificates'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets gift_certificates
-     * @param \BigCommerce\Api\v3\Model\LineItemGiftCertificateRequestData[] $gift_certificates
+     * Sets name
+     * @param string $name Item’s product name.
      * @return $this
      */
-    public function setGiftCertificates($gift_certificates)
+    public function setName($name)
     {
-        $this->container['gift_certificates'] = $gift_certificates;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets custom_items
-     * @return \BigCommerce\Api\v3\Model\CustomItemRequestData[]
+     * Gets quantity
+     * @return float
      */
-    public function getCustomItems()
+    public function getQuantity()
     {
-        return $this->container['custom_items'];
+        return $this->container['quantity'];
     }
 
     /**
-     * Sets custom_items
-     * @param \BigCommerce\Api\v3\Model\CustomItemRequestData[] $custom_items
+     * Sets quantity
+     * @param float $quantity Quantity of this item in the cart.
      * @return $this
      */
-    public function setCustomItems($custom_items)
+    public function setQuantity($quantity)
     {
-        $this->container['custom_items'] = $custom_items;
+        $this->container['quantity'] = $quantity;
 
         return $this;
     }
 
     /**
-     * Gets customer_id
-     * @return int
+     * Gets list_price
+     * @return float
      */
-    public function getCustomerId()
+    public function getListPrice()
     {
-        return $this->container['customer_id'];
+        return $this->container['list_price'];
     }
 
     /**
-     * Sets customer_id
-     * @param int $customer_id
+     * Sets list_price
+     * @param float $list_price Price of the item. With or without tax depending on the store’s set up.
      * @return $this
      */
-    public function setCustomerId($customer_id)
+    public function setListPrice($list_price)
     {
-        $this->container['customer_id'] = $customer_id;
+        $this->container['list_price'] = $list_price;
 
         return $this;
     }
 
     /**
-     * Gets channel_id
-     * @return int
+     * Gets extended_list_price
+     * @return float
      */
-    public function getChannelId()
+    public function getExtendedListPrice()
     {
-        return $this->container['channel_id'];
+        return $this->container['extended_list_price'];
     }
 
     /**
-     * Sets channel_id
-     * @param int $channel_id
+     * Sets extended_list_price
+     * @param float $extended_list_price Item’s list price multiplied by quantity.
      * @return $this
      */
-    public function setChannelId($channel_id)
+    public function setExtendedListPrice($extended_list_price)
     {
-        $this->container['channel_id'] = $channel_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets currency
-     * @return \BigCommerce\Api\v3\Model\Currency
-     */
-    public function getCurrency()
-    {
-        return $this->container['currency'];
-    }
-
-    /**
-     * Sets currency
-     * @param \BigCommerce\Api\v3\Model\Currency $currency
-     * @return $this
-     */
-    public function setCurrency($currency)
-    {
-        $this->container['currency'] = $currency;
+        $this->container['extended_list_price'] = $extended_list_price;
 
         return $this;
     }

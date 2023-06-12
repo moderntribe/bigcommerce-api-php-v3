@@ -178,6 +178,8 @@ definitions:
         $ref: "#/definitions/LineItemRequestData"
       gift_certificate:
         $ref: "#/definitions/LineItemGiftCertificateRequestData"
+      custom_item:
+        $ref: "#/definitions/CustomItemRequestData"
 
   CartCreateRequestData:
     type: object
@@ -207,6 +209,10 @@ definitions:
           type: array
           items:
             $ref: "#/definitions/LineItemGiftCertificateRequestData"
+      custom_items:
+          type: array
+          items:
+            $ref: "#/definitions/CustomItemRequestData"
       customer_id:
           type: integer
       channel_id:
@@ -274,6 +280,29 @@ definitions:
         type: string
         maximum: 200
         description: Message shown to recipient, as provided by sender.
+  CustomItemRequestData:
+    type: object
+    required:
+      - sku
+      - name
+      - quantity
+      - list_price
+    properties:
+      sku:
+        type: string
+        description: Custom
+      name:
+        type: string
+        description: Item’s product name.
+      quantity:
+        type: number
+        description: Quantity of this item in the cart.
+      list_price:
+        type: number
+        description: Price of the item. With or without tax depending on the store’s set up.
+      extended_list_price:
+        type: number
+        description: Item’s list price multiplied by quantity.
   CartResponse:
       description: |
         Response payload for the BigCommerce API.
@@ -367,6 +396,7 @@ definitions:
       - physical_items
       - digital_items
       - gift_certificates
+      - custom_items
     properties:
       physical_items:
           type: array
@@ -380,6 +410,10 @@ definitions:
           type: array
           items:
             $ref: "#/definitions/ItemGiftCertificate"
+      custom_items:
+          type: array
+          items:
+            $ref: "#/definitions/ItemCustom"
   ItemGiftCertificate:
     type: object
     required:
@@ -410,6 +444,25 @@ definitions:
       message:
         type: string
         description: Limited to 200 characters.
+  ItemCustom:
+    type: object
+    properties:
+      id:
+        type: string
+        description: The line-item ID.
+      list_price:
+        type: integer
+        description: Price of the item. With or without tax depending on your stores set up.
+      extended_list_price:
+        type: integer
+      name:
+        type: string
+        description: Item name
+      quantity:
+        type: integer
+      sku:
+        type: string
+        description: Custom item sku
 
   ContactEntity:
     properties:
